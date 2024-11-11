@@ -1,72 +1,57 @@
+# QRGuardPro
 
-\# QRGuardPro
+**QRGuardPro** is a robust C++ application designed to scan and generate QR codes with integrated safety evaluations using the Google Safe Browsing API. Leveraging powerful libraries like Qt6 for the user interface, OpenCV for image processing, libqrencode for QR code generation, and CURL for network operations, QRGuardPro offers a seamless and secure experience for handling QR codes.
 
-**\*\*QRGuardPro\*\*** is a robust C++ application designed to scan and generate QR codes with integrated safety evaluations using the Google Safe Browsing API. Leveraging powerful libraries like Qt6 for the user interface, OpenCV for image processing, libqrencode for QR code generation, and CURL for network operations, QRGuardPro offers a seamless and secure experience for handling QR codes.
+## Table of Contents
 
-\## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+  - [Using the Setup Script (macOS)](#using-the-setup-script-macos)
+  - [Manual Installation](#manual-installation)
+- [Building the Project](#building-the-project)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Environment Variables](#environment-variables)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
-\- \[Features\](#features)
+## Features
 
-\- \[Prerequisites\](#prerequisites)
+- **QR Code Scanning:** Select and scan QR code images to decode embedded data.
+- **QR Code Generation:** Input data to generate custom QR codes.
+- **Safety Evaluation:** Automatically evaluates the safety of scanned URLs using the Google Safe Browsing API.
+- **User-Friendly Interface:** Intuitive GUI built with Qt6 for seamless interactions.
+- **Cross-Platform Support:** Compatible with macOS, Linux, and Windows (with appropriate modifications).
 
-\- \[Installation\](#installation)
+## Prerequisites
 
-  - \[Using the Setup Script (macOS)\](#using-the-setup-script-macos)
+Before setting up **QRGuardPro**, ensure you have the following installed on your system:
 
-  - \[Manual Installation\](#manual-installation)
-
-\- \[Building the Project\](#building-the-project)
-
-\- \[Running the Application\](#running-the-application)
-
-\- \[Usage\](#usage)
-
-\- \[Environment Variables\](#environment-variables)
-
-\- \[Troubleshooting\](#troubleshooting)
-
-
-\- \[License\](#license)
-
-\## Features
-
-\- **\*\*QR Code Scanning:\*\*** Select and scan QR code images to decode embedded data.
-
-\- **\*\*QR Code Generation:\*\*** Input data to generate custom QR codes.
-
-\- **\*\*Safety Evaluation:\*\*** Automatically evaluates the safety of scanned URLs using the Google Safe Browsing API.
-
-\- **\*\*User-Friendly Interface:\*\*** Intuitive GUI built with Qt6 for seamless interactions.
-
-\- **\*\*Cross-Platform Support:\*\*** Compatible with macOS, Linux, and Windows (with appropriate modifications).
-
-\## Prerequisites
-
-Before setting up **\*\*QRGuardPro\*\***, ensure you have the following installed on your system:
-
-\- **\*\*C++ Compiler:\*\*** Compatible with C++17 (e.g., AppleClang on macOS, GCC on Linux, MSVC on Windows)
-
-\- **\*\*CMake:\*\*** Version 3.14 or higher
-
-\- **\*\*Git:\*\*** For cloning the repository
-
-\- **\*\*Homebrew (macOS Only):\*\*** Package manager for installing dependencies
-
-\- **\*\*Qt6:\*\*** For the user interface
-
-\- **\*\*OpenCV:\*\*** For image processing
-
-\- **\*\*libqrencode:\*\*** For QR code generation
-
-\- **\*\*CURL:\*\*** For network operations
-
-\## Installation
-
-\### Using the Setup Script (macOS)
+- **C++ Compiler:** Compatible with C++17 (e.g., AppleClang on macOS, GCC on Linux, MSVC on Windows)
+- **CMake:** Version 3.14 or higher
+- **Git:** For cloning the repository
+- **Homebrew (macOS Only):** Package manager for installing dependencies
+- **Qt6:** For the user interface
+- **OpenCV:** For image processing
+- **libqrencode:** For QR code generation
+- **CURL:** For network operations
+### Using the Setup Script (macOS)
 
 For macOS users, a setup script is provided to automate the installation of necessary dependencies using Homebrew.
 
-1\. **\*\*Clone the Repository:\*\***
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/evaks1/QRGuardPro.git
+   cd QRGuardPro
+## Installation
+
+### Using the Setup Script (macOS)
+
+For macOS users, a setup script is provided to automate the installation of necessary dependencies using Homebrew.
+
+1. **Clone the Repository:**
 
    \`\`\`bash
 
