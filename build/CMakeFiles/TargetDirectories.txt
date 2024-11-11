@@ -1,0 +1,5 @@
+/Users/elsaleksandra/Desktop/C++project/build/CMakeFiles/QRGuardPro.dir
+/Users/elsaleksandra/Desktop/C++project/build/CMakeFiles/edit_cache.dir
+/Users/elsaleksandra/Desktop/C++project/build/CMakeFiles/rebuild_cache.dir
+/Users/elsaleksandra/Desktop/C++project/build/CMakeFiles/QRGuardPro_autogen_timestamp_deps.dir
+/Users/elsaleksandra/Desktop/C++project/build/CMakeFiles/QRGuardPro_autogen.dir

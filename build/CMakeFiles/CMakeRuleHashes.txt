@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+d0eea09a7ff0872db2692439d66e4d79 CMakeFiles/QRGuardPro_autogen
+170e967787c6ecd56fe3a36f89304c27 QRGuardPro_autogen/timestamp
+544c9255debb1fa7759a4cd1303c7f2b qrc_rgguardpro.cpp
