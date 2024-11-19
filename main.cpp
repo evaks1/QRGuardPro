@@ -5,11 +5,11 @@
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    // Set Application Information
+    // Application Information
     QApplication::setApplicationName("QRGuardPro");
     QApplication::setApplicationVersion("1.0");
 
-    // Create and Show Main Window
+    // Main Window
     MainWindow mainWindow;
     mainWindow.show();
 

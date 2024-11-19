@@ -2,11 +2,11 @@
 #include <stdexcept>
 
 QRCodeScanner::QRCodeScanner() {
-    // Constructor implementation (if needed)
+    // Constructor implementation 
 }
 
 QRCodeScanner::~QRCodeScanner() {
-    // Destructor implementation (if needed)
+    // Destructor implementation 
 }
 
 std::string QRCodeScanner::detectAndDecode(const cv::Mat& image) {

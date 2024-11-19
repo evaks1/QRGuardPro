@@ -1,7 +1,11 @@
 // MainWindow.cpp
 #include "MainWindow.h"
-#include <QFileDialog>    // Added for QFileDialog
-#include <QMessageBox>    // Added for QMessageBox
+#include "QRCodeScanner.h"
+#include "QRCodeGenerator.h"
+#include "DataHarvester.h"
+#include "SafetyEvaluator.h" // Ensure this class is implemented
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QDebug>
 #include <opencv2/opencv.hpp>
 #include <QPixmap>
@@ -11,56 +15,62 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-      scanner(new QRCodeScanner()),
-      generator(new QRCodeGenerator()),
-      harvester(new DataHarvester()),
-      evaluator(new SafetyEvaluator())
+      // Initialize smart pointers using std::make_unique
+      scanner(std::make_unique<QRCodeScanner>()),
+      generator(std::make_unique<QRCodeGenerator>()),
+      harvester(std::make_unique<DataHarvester>()),
+      evaluator(std::make_unique<SafetyEvaluator>()),
+      // Initialize UI Components
+      centralWidget(new QWidget(this)),
+      mainLayout(new QVBoxLayout(centralWidget)),
+      scanButton(new QPushButton("Select Image to Scan", this)),
+      scannedDataLabel(new QLabel("Scanned Data: ", this)),
+      scannedImageLabel(new QLabel(this)),
+      inputDataLineEdit(new QLineEdit(this)),
+      generateButton(new QPushButton("Generate QR Code", this)),
+      generatedImageLabel(new QLabel(this)),
+      serverURLLabel(new QLabel(this))
 {
     qDebug() << "MainWindow constructor started";
 
-    // Set Window Title and Icon
+    // Window Title and Icon
     setWindowTitle("QRGuardPro");
     setWindowIcon(QIcon(":/resources/icons/app_icon.png"));
 
-    // Initialize Central Widget and Layout
-    centralWidget = new QWidget(this);
-    mainLayout = new QVBoxLayout(centralWidget);
-
-    // ----- QR Code Scanning Section -----
+    // QR Code Scanning Section
     QLabel *scanSectionLabel = new QLabel("<h2>Scan QR Code</h2>", this);
     mainLayout->addWidget(scanSectionLabel);
 
-    scanButton = new QPushButton("Select Image to Scan", this);
     connect(scanButton, &QPushButton::clicked, this, &MainWindow::onScanButtonClicked);
     mainLayout->addWidget(scanButton);
 
-    scannedDataLabel = new QLabel("Scanned Data: ", this);
     mainLayout->addWidget(scannedDataLabel);
 
-    scannedImageLabel = new QLabel(this);
     scannedImageLabel->setFixedSize(300, 300);
     scannedImageLabel->setStyleSheet("border: 1px solid black;");
     mainLayout->addWidget(scannedImageLabel);
 
-    // ----- QR Code Generation Section -----
+    // QR Code Generation Section
     QLabel *generateSectionLabel = new QLabel("<h2>Generate QR Code</h2>", this);
     mainLayout->addWidget(generateSectionLabel);
 
     QHBoxLayout *inputLayout = new QHBoxLayout();
     QLabel *inputLabel = new QLabel("Data: ", this);
-    inputDataLineEdit = new QLineEdit(this);
     inputLayout->addWidget(inputLabel);
     inputLayout->addWidget(inputDataLineEdit);
     mainLayout->addLayout(inputLayout);
 
-    generateButton = new QPushButton("Generate QR Code", this);
     connect(generateButton, &QPushButton::clicked, this, &MainWindow::onGenerateButtonClicked);
     mainLayout->addWidget(generateButton);
 
-    generatedImageLabel = new QLabel(this);
     generatedImageLabel->setFixedSize(300, 300);
     generatedImageLabel->setStyleSheet("border: 1px solid black;");
     mainLayout->addWidget(generatedImageLabel);
+
+    // Display DataHarvester Server URL
+    QString serverURL = harvester->getServerURL();
+    serverURLLabel->setText(QString("<b>DataHarvester Server URL:</b> %1").arg(serverURL));
+    mainLayout->addWidget(serverURLLabel);
 
     // Set Central Widget
     setCentralWidget(centralWidget);
@@ -73,10 +83,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow() {
     qDebug() << "MainWindow destructor called";
-    delete scanner;
-    delete generator;
-    delete harvester;
-    delete evaluator;
+    // Smart pointers automatically handle memory
 }
 
 void MainWindow::onScanButtonClicked() {
@@ -129,11 +136,18 @@ void MainWindow::onGenerateButtonClicked() {
     }
 
     try {
+        // Retrieve the server URL from DataHarvester
+        QString serverURL = harvester->getServerURL();
+
+        // Combine user input with server URL if needed
+        // For demonstration, we'll use the server URL directly
+        std::string qrData = serverURL.toStdString();
+
         // Generate QR Code
-        cv::Mat qrImage = generator->generateQRCode(inputData.toStdString(), 300);
+        cv::Mat qrImage = generator->generateQRCode(qrData, 300);
         qDebug() << "QR Code generated successfully.";
 
-        // Convert cv::Mat to QPixmap and display
+        // Convert cv::Mat to QImage and display
         QImage qimg = generator->matToQImage(qrImage);
         QPixmap pixmap = QPixmap::fromImage(qimg);
         pixmap = pixmap.scaled(generatedImageLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
