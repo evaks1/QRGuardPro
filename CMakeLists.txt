@@ -16,8 +16,8 @@ set(CMAKE_AUTORCC ON)
 # Specify Qt6 installation path if necessary
 # set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/qt@6/lib/cmake") # Uncomment and set if Qt6 is installed in a non-standard path
 
-# Find Qt6 Components
-find_package(Qt6 COMPONENTS Widgets REQUIRED)
+# Find Qt6 Components (Add Network here)
+find_package(Qt6 COMPONENTS Widgets Network REQUIRED)
 
 # Find OpenCV
 find_package(OpenCV REQUIRED)
@@ -36,7 +36,7 @@ if(NOT CURL_FOUND)
     message(FATAL_ERROR "CURL not found. Please install it using Homebrew: brew install curl")
 endif()
 
-# Include Directories
+# Include Directories (Qt provides include directories via targets, so no need to manually include Qt includes)
 include_directories(
     ${OpenCV_INCLUDE_DIRS}
     ${CURL_INCLUDE_DIRS}
@@ -70,11 +70,15 @@ add_executable(QRGuardPro
     ${QRGuardPro_RESOURCES}
 )
 
-# Link Libraries
+# Link Libraries (Add Qt6::Network here)
 target_link_libraries(QRGuardPro PRIVATE
     Qt6::Widgets
+    Qt6::Network    # Added Network module
     ${OpenCV_LIBS}
     ${QRENCODE_LIBRARY}
     ${CURL_LIBRARIES}
 )
 
+# Optionally, specify include directories for third-party libraries
+# include_directories(/path/to/thirdparty/include)
+# target_link_libraries(QRGuardPro PRIVATE /path/to/thirdparty/lib)

@@ -3,49 +3,47 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QVBoxLayout>    // Added for QVBoxLayout
-#include <QPushButton>    // Added for QPushButton
-#include <QLabel>         // Added for QLabel
-#include <QLineEdit>      // Added for QLineEdit
-#include <QHBoxLayout>    // Added for QHBoxLayout
-#include <QIcon>          // Added for QIcon
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLabel>
+#include <QLineEdit>
+#include <memory> // Include for smart pointers
 
-#include "QRCodeScanner.h"
-#include "QRCodeGenerator.h"
-#include "DataHarvester.h"
-#include "SafetyEvaluator.h"
+// Forward declarations
+class QRCodeScanner;
+class QRCodeGenerator;
+class DataHarvester;
+class SafetyEvaluator;
 
-class MainWindow : public QMainWindow {
-    Q_OBJECT  // Ensure this macro is present
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow(); // Destructor declared
 
 private slots:
     void onScanButtonClicked();
     void onGenerateButtonClicked();
 
 private:
-    // UI Components
+    // Smart pointers for non-QObject classes
+    std::unique_ptr<QRCodeScanner> scanner;
+    std::unique_ptr<QRCodeGenerator> generator;
+    std::unique_ptr<DataHarvester> harvester;
+    std::unique_ptr<SafetyEvaluator> evaluator;
+
+    // UI Elements
     QWidget *centralWidget;
     QVBoxLayout *mainLayout;
-
-    // Scan QR Code Section
     QPushButton *scanButton;
     QLabel *scannedDataLabel;
     QLabel *scannedImageLabel;
-
-    // Generate QR Code Section
     QLineEdit *inputDataLineEdit;
     QPushButton *generateButton;
     QLabel *generatedImageLabel;
-
-    // Helper Classes
-    QRCodeScanner *scanner;
-    QRCodeGenerator *generator;
-    DataHarvester *harvester;
-    SafetyEvaluator *evaluator;
+    QLabel *serverURLLabel;
 };
 
 #endif // MAINWINDOW_H
