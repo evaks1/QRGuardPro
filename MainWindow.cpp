@@ -67,16 +67,11 @@ MainWindow::MainWindow(QWidget *parent)
     generatedImageLabel->setStyleSheet("border: 1px solid black;");
     mainLayout->addWidget(generatedImageLabel);
 
-    // Display DataHarvester Server URL
-    QString serverURL = harvester->getServerURL();
-    serverURLLabel->setText(QString("<b>DataHarvester Server URL:</b> %1").arg(serverURL));
-    mainLayout->addWidget(serverURLLabel);
-
     // Set Central Widget
     setCentralWidget(centralWidget);
 
     // Debug Message Box
-    QMessageBox::information(this, "Debug", "MainWindow Initialized Successfully");
+    //QMessageBox::information(this, "Debug", "MainWindow Initialized Successfully");
 
     qDebug() << "MainWindow constructor finished";
 }

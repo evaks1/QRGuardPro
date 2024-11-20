@@ -36,7 +36,7 @@ bool DataHarvester::startServer(quint16 port) {
 QString DataHarvester::getServerURL() const {
     // For demonstration, assuming the server is running on the local machine.
     // Replace 'localhost' with the actual IP if needed.
-    QString ipAddress = "10.22.5.36";
+    QString ipAddress = "172.20.10.7";
     // To make it accessible externally, replace LocalHost with your machine's IP address.
     // For example, "http://192.168.1.100:8080"
     return QString("http://%1:%2").arg(ipAddress).arg(serverPort);

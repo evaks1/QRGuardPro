@@ -20,12 +20,21 @@ std::string QRCodeScanner::detectAndDecode(const cv::Mat& image) {
 
 cv::Mat QRCodeScanner::qimageToMat(const QImage &image) {
     cv::Mat mat;
-    switch (image.format()) {
+    switch(image.format()) {
+        case QImage::Format_RGB32:
+            mat = cv::Mat(image.height(), image.width(), CV_8UC4, (void*)image.constBits(), image.bytesPerLine());
+            cv::cvtColor(mat, mat, cv::COLOR_BGRA2BGR);
+            break;
+        case QImage::Format_RGB888:
+            mat = cv::Mat(image.height(), image.width(), CV_8UC3, (void*)image.constBits(), image.bytesPerLine());
+            cv::cvtColor(mat, mat, cv::COLOR_RGB2BGR);
+            break;
         case QImage::Format_Grayscale8:
-            mat = cv::Mat(image.height(), image.width(), CV_8UC1, (void*)image.bits(), image.bytesPerLine());
+            mat = cv::Mat(image.height(), image.width(), CV_8UC1, (void*)image.constBits(), image.bytesPerLine());
             break;
         default:
-            throw std::runtime_error("Unsupported QImage format for QR code processing.");
+            mat = cv::Mat();
+            break;
     }
     return mat.clone();
 }
