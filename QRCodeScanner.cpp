@@ -1,14 +1,6 @@
 #include "QRCodeScanner.h"
 #include <stdexcept>
 
-QRCodeScanner::QRCodeScanner() {
-    // Constructor implementation 
-}
-
-QRCodeScanner::~QRCodeScanner() {
-    // Destructor implementation 
-}
-
 std::string QRCodeScanner::detectAndDecode(const cv::Mat& image) {
     cv::QRCodeDetector qrDecoder;
     std::string data = qrDecoder.detectAndDecode(image);

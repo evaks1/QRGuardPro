@@ -79,6 +79,32 @@ target_link_libraries(QRGuardPro PRIVATE
     ${CURL_LIBRARIES}
 )
 
-# Optionally, specify include directories for third-party libraries
-# include_directories(/path/to/thirdparty/include)
-# target_link_libraries(QRGuardPro PRIVATE /path/to/thirdparty/lib)
+
+# Doxygen
+find_package(Doxygen REQUIRED)
+
+set(DOXYGEN_IN ${CMAKE_SOURCE_DIR}/docs/Doxyfile.in)
+set(DOXYGEN_OUT ${CMAKE_BINARY_DIR}/Doxyfile)
+
+configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+
+add_custom_target(
+    Doxygen ALL
+    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Generating Doxygen documentation"
+    VERBATIM
+)
+
+# Sphinx
+find_program(SPHINX_BUILD sphinx-build REQUIRED)
+
+set(SPHINX_SOURCE ${CMAKE_SOURCE_DIR}/docs/source)
+set(SPHINX_BUILD_DIR ${CMAKE_BINARY_DIR}/docs/sphinx)
+
+add_custom_target(
+    Sphinx ALL
+    COMMAND ${SPHINX_BUILD} -b html ${SPHINX_SOURCE} ${SPHINX_BUILD_DIR}
+    COMMENT "Generating Sphinx documentation"
+    VERBATIM
+)

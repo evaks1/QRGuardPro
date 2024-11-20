@@ -5,13 +5,6 @@
 #include <opencv2/imgproc.hpp>
 #include <QDebug>
 
-QRCodeGenerator::QRCodeGenerator() {
-    // Constructor implementation (if needed)
-}
-
-QRCodeGenerator::~QRCodeGenerator() {
-    // Destructor implementation (if needed)
-}
 
 cv::Mat QRCodeGenerator::generateQRCode(const std::string& data, int size) {
     QRcode *qrcode = QRcode_encodeString(data.c_str(), 0, QR_ECLEVEL_L, QR_MODE_8, 1);

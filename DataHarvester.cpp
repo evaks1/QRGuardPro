@@ -6,9 +6,9 @@ DataHarvester::DataHarvester(QObject *parent)
     : QObject(parent),
       tcpServer(new QTcpServer(this)),
       serverPort(8080),
-      logFilePath("harvest_log.txt") // Log file in the application directory
+      logFilePath("harvest_log.txt") 
 {
-    // Attempt to start the server upon initialization
+    // Starting the server upon initialization
     if (!startServer(serverPort)) {
         qDebug() << "Failed to start DataHarvester server on port" << serverPort;
     } else {
@@ -22,7 +22,7 @@ DataHarvester::~DataHarvester() {
         qDebug() << "DataHarvester server stopped.";
     }
 }
-
+// Starts the TCP server on the specified port
 bool DataHarvester::startServer(quint16 port) {
     connect(tcpServer, &QTcpServer::newConnection, this, &DataHarvester::onNewConnection);
     if (!tcpServer->listen(QHostAddress::Any, port)) {
@@ -36,7 +36,7 @@ bool DataHarvester::startServer(quint16 port) {
 QString DataHarvester::getServerURL() const {
     // For demonstration, assuming the server is running on the local machine.
     // Replace 'localhost' with the actual IP if needed.
-    QString ipAddress = "172.20.10.7";
+    QString ipAddress = "172.20.10.4";
     // To make it accessible externally, replace LocalHost with your machine's IP address.
     // For example, "http://192.168.1.100:8080"
     return QString("http://%1:%2").arg(ipAddress).arg(serverPort);
@@ -47,13 +47,13 @@ std::string DataHarvester::harvest(const std::string& inputData) {
     // Implement actual data harvesting logic here (e.g., extract URLs)
     return inputData;
 }
-
+// Slot triggered when a new client connects to the server
 void DataHarvester::onNewConnection() {
     QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
     connect(clientConnection, &QTcpSocket::readyRead, this, &DataHarvester::onReadyRead);
     connect(clientConnection, &QTcpSocket::disconnected, clientConnection, &QTcpSocket::deleteLater);
 }
-
+// Slot triggered when a client sends data to the server
 void DataHarvester::onReadyRead() {
     QTcpSocket *client = qobject_cast<QTcpSocket*>(sender());
     if (!client)
@@ -88,7 +88,7 @@ void DataHarvester::onReadyRead() {
         }
     }
 
-    // Log the request
+    // Log the request 
     logRequest(clientIP, userAgent, path);
 
     // Send a simple HTTP response
@@ -114,8 +114,6 @@ void DataHarvester::logRequest(const QString &clientIP, const QString &userAgent
         << "User-Agent: " << userAgent << "\n"
         << "Requested Path: " << requestedPath << "\n"
         << "--------------------------\n";
-
-    logFile.close();
 
     qDebug() << "Logged request from" << clientIP;
 }
