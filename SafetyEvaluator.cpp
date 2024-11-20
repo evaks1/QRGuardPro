@@ -1,23 +1,14 @@
-// SafetyEvaluator.cpp
 #include "SafetyEvaluator.h"
-#include <algorithm>
-#include <cctype>
-#include <cstdlib>      // For getenv
-#include <iostream>     // For std::cerr and std::endl
-#include <curl/curl.h>  // For CURL functionalities
+#include <curl/curl.h>
+#include <iostream>
+#include <cstdlib>
 
-// Constructor
-SafetyEvaluator::SafetyEvaluator() {}
-
-// Destructor
-SafetyEvaluator::~SafetyEvaluator() {}
-
-// Member function to check if URL starts with HTTPS
+// Override: Check if URL starts with HTTPS
 bool SafetyEvaluator::isHTTPS(const std::string& url) {
     return url.find("https://") == 0;
 }
 
-// Member function to extract domain from URL
+// Override: Extract domain from URL
 std::string SafetyEvaluator::extractDomain(const std::string& url) {
     size_t start = url.find("://");
     if (start == std::string::npos) return "";
@@ -27,14 +18,14 @@ std::string SafetyEvaluator::extractDomain(const std::string& url) {
     return url.substr(start, end - start);
 }
 
-// Member function to check domain reputation using Google Safe Browsing API
+// Override: Main evaluation function
 bool SafetyEvaluator::evaluate(const std::string& url) {
     std::string domain = extractDomain(url);
-    if(domain.empty()) return false;
+    if (domain.empty()) return false;
 
     // Get API key from environment variable
     const char* apiKeyEnv = std::getenv("GOOGLE_SAFE_BROWSING_API_KEY");
-    if(apiKeyEnv == nullptr) {
+    if (apiKeyEnv == nullptr) {
         std::cerr << "Error: GOOGLE_SAFE_BROWSING_API_KEY environment variable not set." << std::endl;
         return false;
     }
@@ -66,7 +57,7 @@ bool SafetyEvaluator::evaluate(const std::string& url) {
     std::string readBuffer;
 
     curl = curl_easy_init();
-    if(curl) {
+    if (curl) {
         struct curl_slist* headers = NULL;
         headers = curl_slist_append(headers, "Content-Type: application/json");
 
@@ -79,7 +70,7 @@ bool SafetyEvaluator::evaluate(const std::string& url) {
         res = curl_easy_perform(curl);
         curl_easy_cleanup(curl);
 
-        if(res != CURLE_OK) {
+        if (res != CURLE_OK) {
             std::cerr << "CURL Error: " << curl_easy_strerror(res) << std::endl;
             return false;
         }
@@ -95,7 +86,7 @@ bool SafetyEvaluator::evaluate(const std::string& url) {
 }
 
 // Static callback function for CURL to write received data
-size_t SafetyEvaluator::WriteCallback(void* contents, size_t size, size_t nmemb, void* userp){
+size_t SafetyEvaluator::WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
     ((std::string*)userp)->append((char*)contents, size * nmemb);
     return size * nmemb;
 }
