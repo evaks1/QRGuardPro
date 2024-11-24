@@ -1,6 +1,7 @@
 #include "QRCodeScanner.h"
 #include <stdexcept>
 
+// Detects and decodes a QR code from a cv::Mat image.
 std::string QRCodeScanner::detectAndDecode(const cv::Mat& image) {
     cv::QRCodeDetector qrDecoder;
     std::string data = qrDecoder.detectAndDecode(image);
@@ -9,7 +10,7 @@ std::string QRCodeScanner::detectAndDecode(const cv::Mat& image) {
     }
     return data;
 }
-
+// Converts a QImage to an OpenCV cv::Mat format
 cv::Mat QRCodeScanner::qimageToMat(const QImage &image) {
     cv::Mat mat;
     switch(image.format()) {
