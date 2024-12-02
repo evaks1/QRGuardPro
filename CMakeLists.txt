@@ -41,6 +41,8 @@ include_directories(
     ${OpenCV_INCLUDE_DIRS}
     ${CURL_INCLUDE_DIRS}
 )
+# Add the tests subdirectory
+add_subdirectory(tests)
 
 # Add Qt Resources
 qt6_add_resources(QRGuardPro_RESOURCES rgguardpro.qrc)
@@ -108,3 +110,4 @@ add_custom_target(
     COMMENT "Generating Sphinx documentation"
     VERBATIM
 )
+enable_testing()
