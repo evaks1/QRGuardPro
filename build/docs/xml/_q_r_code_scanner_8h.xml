@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_q_r_code_scanner_8h" kind="file" language="C++">
+    <compoundname>QRCodeScanner.h</compoundname>
+    <includes local="no">opencv2/opencv.hpp</includes>
+    <includes local="no">QImage</includes>
+    <includedby refid="_main_window_8cpp" local="yes">src/MainWindow.cpp</includedby>
+    <includedby refid="_q_r_code_scanner_8cpp" local="yes">src/QRCodeScanner.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/QRCodeScanner.h</label>
+        <link refid="_q_r_code_scanner_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QImage</label>
+      </node>
+      <node id="2">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_q_r_code_scanner" prot="public">QRCodeScanner</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>QRCODESCANNER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QRCODESCANNER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/opencv.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QImage&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="class_q_r_code_scanner" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_q_r_code_scanner" kindref="compound">QRCodeScanner</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="class_q_r_code_scanner_1a95eb246b0f9aa65286f3142592b8387c" kindref="member">detectAndDecode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>cv::Mat&amp;<sp/>image);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/><ref refid="class_q_r_code_scanner_1a5d45605251a8a0ac4e2c9e0495725277" kindref="member">qimageToMat</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QImage<sp/>&amp;image);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QRCODESCANNER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/QRCodeScanner.h"/>
+  </compounddef>
+</doxygen>

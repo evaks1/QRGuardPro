@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_safety_evaluator_base" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>SafetyEvaluatorBase</compoundname>
+    <derivedcompoundref refid="class_safety_evaluator" prot="public" virt="non-virtual">SafetyEvaluator</derivedcompoundref>
+    <includes refid="_safety_evaluator_8h" local="no">SafetyEvaluator.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_safety_evaluator_base_1a67b12ec679a204cb0381a3de566f3871" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual SafetyEvaluatorBase::~SafetyEvaluatorBase</definition>
+        <argsstring>()=default</argsstring>
+        <name>~SafetyEvaluatorBase</name>
+        <qualifiedname>SafetyEvaluatorBase::~SafetyEvaluatorBase</qualifiedname>
+        <briefdescription>
+<para>Virtual destructor for <ref refid="class_safety_evaluator_base" kindref="compound">SafetyEvaluatorBase</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SafetyEvaluator.h" line="19" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_safety_evaluator_base_1a83670671b59b39a7f3d94d13d53d6aa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool SafetyEvaluatorBase::evaluate</definition>
+        <argsstring>(const std::string &amp;url)=0</argsstring>
+        <name>evaluate</name>
+        <qualifiedname>SafetyEvaluatorBase::evaluate</qualifiedname>
+        <reimplementedby refid="class_safety_evaluator_1a024e0b918cf629190b227fc5803cd9bc">evaluate</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Evaluates the safety of a given URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL to evaluate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the URL is deemed safe, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SafetyEvaluator.h" line="26" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_safety_evaluator_base_1a62525c72a13f63b331de399298fb22b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool SafetyEvaluatorBase::isHTTPS</definition>
+        <argsstring>(const std::string &amp;url)=0</argsstring>
+        <name>isHTTPS</name>
+        <qualifiedname>SafetyEvaluatorBase::isHTTPS</qualifiedname>
+        <reimplementedby refid="class_safety_evaluator_1a7497488113728a23b065eeda52515a11">isHTTPS</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a URL uses the HTTPS protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL to check. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the URL starts with &quot;https://&quot;, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SafetyEvaluator.h" line="33" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_safety_evaluator_base_1aedf8a2d60f15fd3789c9db177b45d660" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string SafetyEvaluatorBase::extractDomain</definition>
+        <argsstring>(const std::string &amp;url)=0</argsstring>
+        <name>extractDomain</name>
+        <qualifiedname>SafetyEvaluatorBase::extractDomain</qualifiedname>
+        <reimplementedby refid="class_safety_evaluator_1a2869c34bf91785368ce06cc3f00ce1ed">extractDomain</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Extracts the domain from a given URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL to process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A std::string containing the domain of the URL. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SafetyEvaluator.h" line="40" column="25"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>An abstract base class for evaluating URL safety. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="class_safety_evaluator_base" kindref="compound">SafetyEvaluatorBase</ref> class defines a blueprint for URL safety evaluation, requiring derived classes to implement methods for evaluating URLs, checking HTTPS, and extracting domains. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>SafetyEvaluator</label>
+        <link refid="class_safety_evaluator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>SafetyEvaluatorBase</label>
+        <link refid="class_safety_evaluator_base"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/SafetyEvaluator.h" line="14" column="1" bodyfile="include/SafetyEvaluator.h" bodystart="14" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_safety_evaluator_base_1a83670671b59b39a7f3d94d13d53d6aa6" prot="public" virt="pure-virtual"><scope>SafetyEvaluatorBase</scope><name>evaluate</name></member>
+      <member refid="class_safety_evaluator_base_1aedf8a2d60f15fd3789c9db177b45d660" prot="public" virt="pure-virtual"><scope>SafetyEvaluatorBase</scope><name>extractDomain</name></member>
+      <member refid="class_safety_evaluator_base_1a62525c72a13f63b331de399298fb22b0" prot="public" virt="pure-virtual"><scope>SafetyEvaluatorBase</scope><name>isHTTPS</name></member>
+      <member refid="class_safety_evaluator_base_1a67b12ec679a204cb0381a3de566f3871" prot="public" virt="virtual"><scope>SafetyEvaluatorBase</scope><name>~SafetyEvaluatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

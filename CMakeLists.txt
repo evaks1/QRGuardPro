@@ -47,20 +47,20 @@ qt6_add_resources(QRGuardPro_RESOURCES rgguardpro.qrc)
 
 # Source Files
 set(SOURCES
-    main.cpp
-    MainWindow.cpp
-    QRCodeScanner.cpp
-    QRCodeGenerator.cpp
-    DataHarvester.cpp
-    SafetyEvaluator.cpp
+    src/main.cpp
+    src/MainWindow.cpp
+    src/QRCodeScanner.cpp
+    src/QRCodeGenerator.cpp
+    src/DataHarvester.cpp
+    src/SafetyEvaluator.cpp
 )
 
 set(HEADERS
-    MainWindow.h
-    QRCodeScanner.h
-    QRCodeGenerator.h
-    DataHarvester.h
-    SafetyEvaluator.h
+    include/MainWindow.h
+    include/QRCodeScanner.h
+    include/QRCodeGenerator.h
+    include/DataHarvester.h
+    include/SafetyEvaluator.h
 )
 
 # Add Executable

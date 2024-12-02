@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_q_r_code_scanner" kind="class" language="C++" prot="public">
+    <compoundname>QRCodeScanner</compoundname>
+    <includes refid="_q_r_code_scanner_8h" local="no">QRCodeScanner.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_q_r_code_scanner_1a95eb246b0f9aa65286f3142592b8387c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string QRCodeScanner::detectAndDecode</definition>
+        <argsstring>(const cv::Mat &amp;image)</argsstring>
+        <name>detectAndDecode</name>
+        <qualifiedname>QRCodeScanner::detectAndDecode</qualifiedname>
+        <param>
+          <type>const cv::Mat &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+<para>Detects and decodes a QR code from a cv::Mat image. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cv::Mat image containing the QR code to decode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A std::string containing the decoded data from the QR code. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::runtime_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if decoding fails or no QR code is found. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/QRCodeScanner.h" line="22" column="17" bodyfile="src/QRCodeScanner.cpp" bodystart="5" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_q_r_code_scanner_1a5d45605251a8a0ac4e2c9e0495725277" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>cv::Mat</type>
+        <definition>cv::Mat QRCodeScanner::qimageToMat</definition>
+        <argsstring>(const QImage &amp;image)</argsstring>
+        <name>qimageToMat</name>
+        <qualifiedname>QRCodeScanner::qimageToMat</qualifiedname>
+        <param>
+          <type>const QImage &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+<para>Converts a QImage to an OpenCV cv::Mat format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The QImage to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A cv::Mat representation of the input QImage. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::runtime_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the QImage format is unsupported. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/QRCodeScanner.h" line="30" column="13" bodyfile="src/QRCodeScanner.cpp" bodystart="14" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class for decoding QR codes from images. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="class_q_r_code_scanner" kindref="compound">QRCodeScanner</ref> class provides methods to detect and decode QR codes from images, as well as convert images between Qt&apos;s QImage and OpenCV&apos;s cv::Mat formats. </para>
+    </detaileddescription>
+    <location file="include/QRCodeScanner.h" line="14" column="1" bodyfile="include/QRCodeScanner.h" bodystart="14" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_q_r_code_scanner_1a95eb246b0f9aa65286f3142592b8387c" prot="public" virt="non-virtual"><scope>QRCodeScanner</scope><name>detectAndDecode</name></member>
+      <member refid="class_q_r_code_scanner_1a5d45605251a8a0ac4e2c9e0495725277" prot="public" virt="non-virtual"><scope>QRCodeScanner</scope><name>qimageToMat</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
