@@ -1,7 +1,0 @@
-/Users/annashats/Desktop/c++/QRGuardPro/build/CMakeFiles/QRGuardPro.dir
-/Users/annashats/Desktop/c++/QRGuardPro/build/CMakeFiles/Doxygen.dir
-/Users/annashats/Desktop/c++/QRGuardPro/build/CMakeFiles/Sphinx.dir
-/Users/annashats/Desktop/c++/QRGuardPro/build/CMakeFiles/edit_cache.dir
-/Users/annashats/Desktop/c++/QRGuardPro/build/CMakeFiles/rebuild_cache.dir
-/Users/annashats/Desktop/c++/QRGuardPro/build/CMakeFiles/QRGuardPro_autogen_timestamp_deps.dir
-/Users/annashats/Desktop/c++/QRGuardPro/build/CMakeFiles/QRGuardPro_autogen.dir
