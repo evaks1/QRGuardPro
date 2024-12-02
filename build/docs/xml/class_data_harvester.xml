@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_data_harvester" kind="class" language="C++" prot="public">
+    <compoundname>DataHarvester</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="_data_harvester_8h" local="no">DataHarvester.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_data_harvester_1aa639fc0c8f0f73fee041aef6d5b50d56" prot="private" static="no" mutable="no">
+        <type>QTcpServer *</type>
+        <definition>QTcpServer* DataHarvester::tcpServer</definition>
+        <argsstring></argsstring>
+        <name>tcpServer</name>
+        <qualifiedname>DataHarvester::tcpServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="69" column="16" bodyfile="include/DataHarvester.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_harvester_1aab97e2e3346a8441c8e728f7de0f8725" prot="private" static="no" mutable="no">
+        <type>quint16</type>
+        <definition>quint16 DataHarvester::serverPort</definition>
+        <argsstring></argsstring>
+        <name>serverPort</name>
+        <qualifiedname>DataHarvester::serverPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="70" column="13" bodyfile="include/DataHarvester.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_harvester_1ad726b4de5bbe8fe94e232f8262e3ec73" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DataHarvester::logFilePath</definition>
+        <argsstring></argsstring>
+        <name>logFilePath</name>
+        <qualifiedname>DataHarvester::logFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="71" column="13" bodyfile="include/DataHarvester.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_harvester_1a342f3878645ec5be0567f36f9155f175" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DataHarvester::DataHarvester</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>DataHarvester</name>
+        <qualifiedname>DataHarvester::DataHarvester</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Constructor for the <ref refid="class_data_harvester" kindref="compound">DataHarvester</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the parent QObject. Defaults to nullptr. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="28" column="14" bodyfile="src/DataHarvester.cpp" bodystart="5" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_harvester_1ae535356b011f331d3031d5aff54b05c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DataHarvester::~DataHarvester</definition>
+        <argsstring>()</argsstring>
+        <name>~DataHarvester</name>
+        <qualifiedname>DataHarvester::~DataHarvester</qualifiedname>
+        <briefdescription>
+<para>Destructor for the <ref refid="class_data_harvester" kindref="compound">DataHarvester</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="33" column="5" bodyfile="src/DataHarvester.cpp" bodystart="19" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_harvester_1aeb2fe9d9a248fcb52342be9b070c0082" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DataHarvester::startServer</definition>
+        <argsstring>(quint16 port=8080)</argsstring>
+        <name>startServer</name>
+        <qualifiedname>DataHarvester::startServer</qualifiedname>
+        <param>
+          <type>quint16</type>
+          <declname>port</declname>
+          <defval>8080</defval>
+        </param>
+        <briefdescription>
+<para>Starts the TCP server on the specified port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port number to listen on. Defaults to 8080. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the server starts successfully, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="40" column="10" bodyfile="src/DataHarvester.cpp" bodystart="26" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_harvester_1a9a33eaa2a1b0e9434dd3e427d47fb389" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DataHarvester::getServerURL</definition>
+        <argsstring>() const</argsstring>
+        <name>getServerURL</name>
+        <qualifiedname>DataHarvester::getServerURL</qualifiedname>
+        <briefdescription>
+<para>Retrieves the server&apos;s URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This assumes the server is running on localhost for demonstration purposes. <simplesect kind="return"><para>A QString containing the server URL. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="48" column="13" bodyfile="src/DataHarvester.cpp" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_harvester_1abf631292034900d0dd5d79d9538fa620" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string DataHarvester::harvest</definition>
+        <argsstring>(const std::string &amp;inputData)</argsstring>
+        <name>harvest</name>
+        <qualifiedname>DataHarvester::harvest</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>inputData</declname>
+        </param>
+        <briefdescription>
+<para>Processes input data to extract useful information (e.g., URLs). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inputData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The raw input data as a std::string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A std::string containing the extracted information. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="55" column="17" bodyfile="src/DataHarvester.cpp" bodystart="45" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_data_harvester_1a221e8b642ca40e7fa5869608b65996fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataHarvester::onNewConnection</definition>
+        <argsstring>()</argsstring>
+        <name>onNewConnection</name>
+        <qualifiedname>DataHarvester::onNewConnection</qualifiedname>
+        <briefdescription>
+<para>Slot triggered when a new client connects to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="61" column="10" bodyfile="src/DataHarvester.cpp" bodystart="51" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_data_harvester_1a37e7fef4a560583641df23d65a1c09d1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataHarvester::onReadyRead</definition>
+        <argsstring>()</argsstring>
+        <name>onReadyRead</name>
+        <qualifiedname>DataHarvester::onReadyRead</qualifiedname>
+        <briefdescription>
+<para>Slot triggered when a client sends data to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="66" column="10" bodyfile="src/DataHarvester.cpp" bodystart="57" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_data_harvester_1a1d30d8d75e1f1565cf6665019243e3d1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataHarvester::logRequest</definition>
+        <argsstring>(const QString &amp;clientIP, const QString &amp;userAgent, const QString &amp;requestedPath)</argsstring>
+        <name>logRequest</name>
+        <qualifiedname>DataHarvester::logRequest</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>clientIP</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>userAgent</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>requestedPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DataHarvester.h" line="73" column="10" bodyfile="src/DataHarvester.cpp" bodystart="103" bodyend="119"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class for handling TCP server operations and data harvesting. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="class_data_harvester" kindref="compound">DataHarvester</ref> class manages a TCP server to receive incoming connections, processes data sent by clients, and logs relevant information such as client IP, user agent, and requested paths. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DataHarvester</label>
+        <link refid="class_data_harvester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DataHarvester</label>
+        <link refid="class_data_harvester"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/DataHarvester.h" line="21" column="1" bodyfile="include/DataHarvester.h" bodystart="21" bodyend="74"/>
+    <listofallmembers>
+      <member refid="class_data_harvester_1a342f3878645ec5be0567f36f9155f175" prot="public" virt="non-virtual"><scope>DataHarvester</scope><name>DataHarvester</name></member>
+      <member refid="class_data_harvester_1a9a33eaa2a1b0e9434dd3e427d47fb389" prot="public" virt="non-virtual"><scope>DataHarvester</scope><name>getServerURL</name></member>
+      <member refid="class_data_harvester_1abf631292034900d0dd5d79d9538fa620" prot="public" virt="non-virtual"><scope>DataHarvester</scope><name>harvest</name></member>
+      <member refid="class_data_harvester_1ad726b4de5bbe8fe94e232f8262e3ec73" prot="private" virt="non-virtual"><scope>DataHarvester</scope><name>logFilePath</name></member>
+      <member refid="class_data_harvester_1a1d30d8d75e1f1565cf6665019243e3d1" prot="private" virt="non-virtual"><scope>DataHarvester</scope><name>logRequest</name></member>
+      <member refid="class_data_harvester_1a221e8b642ca40e7fa5869608b65996fd" prot="private" virt="non-virtual"><scope>DataHarvester</scope><name>onNewConnection</name></member>
+      <member refid="class_data_harvester_1a37e7fef4a560583641df23d65a1c09d1" prot="private" virt="non-virtual"><scope>DataHarvester</scope><name>onReadyRead</name></member>
+      <member refid="class_data_harvester_1aab97e2e3346a8441c8e728f7de0f8725" prot="private" virt="non-virtual"><scope>DataHarvester</scope><name>serverPort</name></member>
+      <member refid="class_data_harvester_1aeb2fe9d9a248fcb52342be9b070c0082" prot="public" virt="non-virtual"><scope>DataHarvester</scope><name>startServer</name></member>
+      <member refid="class_data_harvester_1aa639fc0c8f0f73fee041aef6d5b50d56" prot="private" virt="non-virtual"><scope>DataHarvester</scope><name>tcpServer</name></member>
+      <member refid="class_data_harvester_1ae535356b011f331d3031d5aff54b05c9" prot="public" virt="non-virtual"><scope>DataHarvester</scope><name>~DataHarvester</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
